@@ -17,4 +17,8 @@ export default class TaskRepository implements TaskRepositoryInterface {
       }
     })
   }
+
+  async findAll(): Promise<any> {
+    return await prismaClient.task.findMany();
+  }
 }

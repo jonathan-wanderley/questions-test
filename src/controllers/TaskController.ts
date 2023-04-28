@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
-import { createTaskService, getTaskService } from "../services";
+import {
+  createTaskService,
+  getTaskService,
+  findAllTasksService
+} from "../services";
 
 class TaskController {
   async store(req: Request, res: Response) {
@@ -16,6 +20,12 @@ class TaskController {
     const foundTask = await getTaskService.execute(id);
 
     return res.json(foundTask);
+  }
+
+  async index(req: Request, res: Response) {
+    const taskList = await findAllTasksService.execute();
+
+    return res.json(taskList);
   }
 }
 
