@@ -21,4 +21,12 @@ export default class TaskRepository implements TaskRepositoryInterface {
   async findAll(): Promise<any> {
     return await prismaClient.task.findMany();
   }
+
+  async delete(id: string): Promise<any> {
+    return await prismaClient.task.delete({
+      where: {
+        id,
+      }
+    })
+  }
 }

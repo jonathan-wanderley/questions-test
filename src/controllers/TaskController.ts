@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import {
   createTaskService,
   getTaskService,
-  findAllTasksService
+  findAllTasksService,
+  deleteTaskService
 } from "../services";
 
 class TaskController {
@@ -26,6 +27,14 @@ class TaskController {
     const taskList = await findAllTasksService.execute();
 
     return res.json(taskList);
+  }
+
+  async destroy(req: Request, res: Response) {
+    const { id } = req.params;
+
+    await deleteTaskService.execute(id);
+
+    return res.status(204).json('');
   }
 }
 

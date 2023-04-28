@@ -2,5 +2,6 @@ export interface TaskRepositoryInterface {
   create(description: string): Promise<any>;
   findOne(id: string): Promise<any>;
   findAll(): Promise<any>;
+  delete(id: string): Promise<any>;
 }
 
