@@ -9,4 +9,12 @@ export default class TaskRepository implements TaskRepositoryInterface {
       }
     })
   }
+
+  async findOne(id: string): Promise<any> {
+    return await prismaClient.task.findFirst({
+      where: {
+        id
+      }
+    })
+  }
 }
