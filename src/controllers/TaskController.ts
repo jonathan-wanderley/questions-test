@@ -3,7 +3,8 @@ import {
   createTaskService,
   getTaskService,
   findAllTasksService,
-  deleteTaskService
+  deleteTaskService,
+  updateTaskService,
 } from "../services";
 
 class TaskController {
@@ -27,6 +28,15 @@ class TaskController {
     const taskList = await findAllTasksService.execute();
 
     return res.json(taskList);
+  }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const { description, done, finished_at } = req.body;
+
+    const updatedTask = await updateTaskService.execute(id, { description, done, finished_at });
+
+    res.json(updatedTask)
   }
 
   async destroy(req: Request, res: Response) {

@@ -6,6 +6,15 @@ const create = validate({
   }),
 })
 
+const update = validate({
+  body: Joi.object({
+    description: Joi.string(),
+    done: Joi.boolean(),
+    finished_at: Joi.date(),
+  }),
+})
+
 export default {
   create,
+  update,
 }
