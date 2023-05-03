@@ -1,20 +1,8 @@
 import { NextFunction, Request, Response, Router } from "express";
-
-import TaskController from "./controllers/TaskController";
-import TaskValidator from "./validators/TaskValidator";
 import passport from "passport";
-import { checkLogin } from "./middlewares/checkLogin";
 
 const routes = Router();
 
-//tasks
-routes.get('/tasks', checkLogin, TaskController.index);
-routes.get('/tasks/:id', TaskController.get);
-routes.post('/tasks', TaskValidator.create, TaskController.store);
-routes.put('/tasks/:id', TaskValidator.update, TaskController.update);
-routes.delete('/tasks/:id', TaskController.destroy);
-
-//auth
 routes.get('/login/sucess', (req: Request, res: Response) => {
   if(!req.user) {
     res.status(403).json({
