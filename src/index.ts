@@ -2,7 +2,7 @@ import express from "express";
 import "express-async-errors";
 import "dotenv/config";
 import cors from "cors";
-import cookieSession from "cookie-session";
+import session from "express-session";
 import passport from "passport";
 import routes from "./routes";
 import { ErrorHandler } from "./middlewares/errorHandler";
@@ -13,13 +13,14 @@ import "./oauth2-loader";
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["todolist"],
-    maxAge: 24 * 60 * 60 * 100,
-  })
-);
+app.use(session({
+  secret: 'todolist',
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+      maxAge: 24 * 60 * 60 * 100
+  }
+}))
 
 app.use(passport.initialize());
 app.use(passport.session());

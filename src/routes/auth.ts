@@ -33,7 +33,7 @@ routes.get('/auth/google/callback', passport.authenticate('google', {
 routes.get('/google', passport.authenticate("google", { scope: ["profile", "email"] }));
 
 routes.get('/logout', (req: Request, res: Response, next: NextFunction) => {
-  req.session = null;
+  //req.session = null;
   req.logout( function(err) {
     if (err) { return next(err); }
     res.redirect('/');
