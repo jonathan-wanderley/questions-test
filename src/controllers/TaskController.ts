@@ -5,7 +5,7 @@ import {
   findAllTasksService,
   deleteTaskService,
   updateTaskService,
-} from "../services";
+} from "../services/task";
 
 class TaskController {
   async store(req: Request, res: Response) {

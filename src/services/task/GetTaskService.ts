@@ -1,6 +1,6 @@
-import { AppError } from "../errors/AppError";
-import errorMessages from "../errors";
-import { TaskRepositoryInterface } from "../repositories/interfaces/TaskRepositoryInterface";
+import { AppError } from "../../errors/AppError";
+import errorMessages from "../../errors";
+import { TaskRepositoryInterface } from "../../repositories/interfaces/TaskRepositoryInterface";
 
 export class GetTaskService {
   private taskRepository: TaskRepositoryInterface;

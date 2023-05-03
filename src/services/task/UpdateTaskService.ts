@@ -1,4 +1,4 @@
-import { TaskRepositoryInterface } from "../repositories/interfaces/TaskRepositoryInterface";
+import { TaskRepositoryInterface } from "../../repositories/interfaces/TaskRepositoryInterface";
 
 interface UpdateTaskDto {
   description?: string;

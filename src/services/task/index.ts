@@ -4,7 +4,7 @@ import { GetTaskService } from "./GetTaskService";
 import { FindAllTasksService } from "./FindAllTasksService";
 import { DeleteTaskService } from "./DeleteTaskService";
 
-import TaskRepository from "../repositories/TaskRepository";
+import TaskRepository from "../../repositories/TaskRepository";
 
 const taskRepository = new TaskRepository();
 

@@ -1,6 +1,6 @@
-import { AppError } from "../errors/AppError";
-import errorMessages from "../errors";
-import { TaskRepositoryInterface } from "../repositories/interfaces/TaskRepositoryInterface";
+import { AppError } from "../../errors/AppError";
+import errorMessages from "../../errors";
+import { TaskRepositoryInterface } from "../../repositories/interfaces/TaskRepositoryInterface";
 
 export class DeleteTaskService {
   private taskRepository: TaskRepositoryInterface;
